@@ -2,7 +2,7 @@ ARG GO_VERSION_TARGET=1.12
 
 FROM golang:${GO_VERSION_TARGET} as gosrc
 
-FROM jenkins/jnlp-slave
+FROM jenkins/inbound-agent
 ARG GO_BASE_PATH=/usr/local/go
 
 USER root
@@ -21,7 +21,5 @@ COPY --from=gosrc /go ${HOME}
 
 ENV GOPATH ${HOME}
 ENV PATH "${GOPATH}/bin:${GO_BASE_PATH}/bin:${PATH}"
-
-WORKDIR ${HOME}
 
 LABEL maintainer="info@mjslabs.com"

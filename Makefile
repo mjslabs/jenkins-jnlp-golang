@@ -1,5 +1,9 @@
 .PHONY: golang-latest
-golang-latest: golang-1.14
+golang-latest: golang-1.15
+
+.PHONY: golang-1.15
+golang-1.15:
+		docker build --no-cache -t mjslabs/jenkins-jnlp-golang:1.15 -f golang/1.15/Dockerfile golang/1.15
 
 .PHONY: golang-1.14
 golang-1.14:
